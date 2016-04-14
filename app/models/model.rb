@@ -2,6 +2,6 @@ class Model < ActiveRecord::Base
 
   belongs_to :organization
 
-  validates :name, presence: true
+  validates :name, :model_slug, presence: true
 
 end
