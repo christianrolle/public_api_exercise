@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0',        group: :doc
 # gem 'debugger', group: [:development, :test]
 
 gem "devise"
+gem "friendly_id"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
