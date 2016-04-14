@@ -9,7 +9,9 @@ RSpec.describe ModelType, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:model_type_slug) }
     it { is_expected.to validate_presence_of(:base_price) }
-    it { is_expected.to validate_numericality_of(:base_price).only_integer }
+    it { is_expected.to validate_numericality_of(:base_price)
+                          .only_integer
+                          .is_greater_than_or_equal_to(0) }
   end
 
   describe "associations" do
