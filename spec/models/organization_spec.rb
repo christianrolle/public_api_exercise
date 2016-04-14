@@ -9,5 +9,7 @@ RSpec.describe Organization, type: :model do
     it { is_expected.to validate_presence_of(:public_name) }
     it { is_expected.to validate_presence_of(:type) }
     it { is_expected.to validate_presence_of(:pricing_policy) }
+    it { is_expected.to validate_inclusion_of(:type)
+                                    .in_array(%w(Show room Service Dealer)) }
   end
 end
