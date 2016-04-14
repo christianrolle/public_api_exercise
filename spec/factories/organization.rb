@@ -3,5 +3,6 @@ FactoryGirl.define do
     name 'Organization'
     public_name 'Organization'
     type 'Show room'
+    pricing_policy 'Fixed'
   end
 end
