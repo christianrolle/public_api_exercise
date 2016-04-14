@@ -11,5 +11,7 @@ RSpec.describe Organization, type: :model do
     it { is_expected.to validate_presence_of(:pricing_policy) }
     it { is_expected.to validate_inclusion_of(:type)
                           .in_array(['Show room', 'Service', 'Dealer']) }
+    it { is_expected.to validate_inclusion_of(:pricing_policy)
+                          .in_array(%w(Flexible Fixed Prestige)) }
   end
 end
