@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
 
-  validates :name, presence: true
+  validates :name, :public_name, presence: true
 
 end
