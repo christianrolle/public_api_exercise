@@ -21,5 +21,13 @@ RSpec.describe ModelTypesController, type: :controller do
     }
     
     it { should use_before_action(:restrict_public_api_access) }
+    
+    context "when invalid authentication token" do
+      it "should respond with status 401" do
+        clear_token
+        put :model_types_price, params 
+        expect(response.status).to eq(401)
+      end
+    end
   end
 end
