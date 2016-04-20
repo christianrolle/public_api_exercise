@@ -36,5 +36,16 @@ RSpec.describe ModelTypesController, type: :controller do
         expect(response.status).to eq(404)
       end
     end
+
+    context "when model type does exist" do
+      before { 
+        model_type.save! 
+        params[:model_type] = { base_price: model_type.base_price + 1 }
+      }
+
+      it { should permit(:base_price)
+              .for(:model_types_price, params: params, verb: :post)
+              .on(:model_type) }
+    end
   end
 end
