@@ -13,8 +13,6 @@ RSpec.describe ModelTypesController, type: :controller do
   end
 
   describe "Token based authentication" do
-    let!(:params) { { model_slug: model.model_slug, format: :json } }
-
     it { should use_before_action(:restrict_public_api_access) }
   end
 
