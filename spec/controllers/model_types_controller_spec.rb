@@ -52,6 +52,10 @@ RSpec.describe ModelTypesController, type: :controller do
         before { put :model_types_price, params }
 
         it { is_expected.to respond_with(200) }
+
+        it "should update the base price" do
+          expect(model_type.reload.base_price).to eq(new_base_price)
+        end
       end
     end
   end

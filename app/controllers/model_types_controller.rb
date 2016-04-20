@@ -6,6 +6,7 @@ class ModelTypesController < ApplicationController
     @model_type = ModelType.find_by_model_type_slug params[:model_type_slug]
     raise ActiveRecord::RecordNotFound if @model_type.nil?
     @model_type.attributes = model_type_params
+    @model_type.save!
     respond_to do |format|
       format.json { render json: @model_type }
     end
