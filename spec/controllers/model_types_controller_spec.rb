@@ -56,6 +56,12 @@ RSpec.describe ModelTypesController, type: :controller do
         it "should update the base price" do
           expect(model_type.reload.base_price).to eq(new_base_price)
         end
+
+        it "should return the model_type json" do
+          model_type_json = JSON.parse(response.body)
+          expect(model_type_json["name"]).to eq(model_type.name)
+          expect(model_type_json["base_price"]).to eq(new_base_price)
+        end
       end
     end
   end
