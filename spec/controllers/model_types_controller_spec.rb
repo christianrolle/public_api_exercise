@@ -12,6 +12,12 @@ RSpec.describe ModelTypesController, type: :controller do
                   model_slug: "serie_3", model_type_slug: "330i") }
   end
 
+  describe "Token based authentication" do
+    let!(:params) { { model_slug: model.model_slug, format: :json } }
+
+    it { should use_before_action(:restrict_public_api_access) }
+  end
+
   describe "POST #model_types_price" do
     let!(:model_type) { build :model_type }
     let!(:params) { 
@@ -19,8 +25,6 @@ RSpec.describe ModelTypesController, type: :controller do
         model_type_slug: model_type.model_type_slug, 
         format: :json }
     }
-    
-    it { should use_before_action(:restrict_public_api_access) }
     
     context "when invalid authentication token" do
       it "should respond with status 401" do
