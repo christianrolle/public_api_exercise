@@ -1,6 +1,7 @@
 class ModelTypesController < ApplicationController
   include PublicApiRestrictable
   rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
 
   def model_types_price
     @model_type = ModelType.find_by_model_type_slug params[:model_type_slug]
@@ -20,5 +21,9 @@ class ModelTypesController < ApplicationController
 
   def render_record_not_found
     render nothing: true, status: :not_found
+  end
+
+  def render_invalid
+    render nothing: true, status: :bad_request
   end
 end

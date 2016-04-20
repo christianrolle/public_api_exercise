@@ -47,6 +47,14 @@ RSpec.describe ModelTypesController, type: :controller do
               .for(:model_types_price, params: params, verb: :post)
               .on(:model_type) }
 
+      context "when invalid base price" do
+        it "should respond with status 400" do
+          params[:model_type][:base_price] = "a"
+          put :model_types_price, params 
+          expect(response.status).to eq(400)
+        end
+      end
+
       context "when valid base price" do
         let!(:new_base_price) { params[:model_type][:base_price] }
         before { put :model_types_price, params }
