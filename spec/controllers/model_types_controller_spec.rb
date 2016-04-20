@@ -29,5 +29,12 @@ RSpec.describe ModelTypesController, type: :controller do
         expect(response.status).to eq(401)
       end
     end
+
+    context "when model type does not exist" do
+      it "should respond with status 404" do
+        put :model_types_price, params
+        expect(response.status).to eq(404)
+      end
+    end
   end
 end
