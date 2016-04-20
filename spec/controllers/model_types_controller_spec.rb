@@ -46,6 +46,13 @@ RSpec.describe ModelTypesController, type: :controller do
       it { should permit(:base_price)
               .for(:model_types_price, params: params, verb: :post)
               .on(:model_type) }
+
+      context "when valid base price" do
+        let!(:new_base_price) { params[:model_type][:base_price] }
+        before { put :model_types_price, params }
+
+        it { is_expected.to respond_with(200) }
+      end
     end
   end
 end
