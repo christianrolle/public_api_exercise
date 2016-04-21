@@ -68,9 +68,7 @@ RSpec.describe ModelTypesController, type: :controller do
         end
 
         it "should return the model_type json" do
-          model_type_json = JSON.parse(response.body)
-          expect(model_type_json["name"]).to eq(model_type.name)
-          expect(model_type_json["base_price"]).to eq(new_base_price)
+          expect(response).to match_response_schema("model_type")
         end
       end
     end
