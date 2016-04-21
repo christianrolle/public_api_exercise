@@ -21,6 +21,7 @@ end
 
 group :test do
   gem "json-schema"
+  gem "json_matchers"
 end
 
 group :development do

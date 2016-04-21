@@ -27,7 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     diff-lcs (1.2.5)
@@ -44,8 +43,10 @@ GEM
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
     json (1.8.3)
-    json-schema (2.6.1)
-      addressable (~> 2.3.8)
+    json-schema (2.2.5)
+    json_matchers (0.5.0)
+      activesupport (>= 3.0.0)
+      json-schema (~> 2.2.5)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -131,6 +132,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   json-schema
+  json_matchers
   rails (= 4.1.0)
   rspec-rails (>= 2.0.1)
   sass-rails (~> 4.0.3)
