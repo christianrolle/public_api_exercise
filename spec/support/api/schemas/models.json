@@ -1,6 +1,24 @@
 {
-  "models": {
-    "type": "object",
-    "required": ["name", "base_price"]
+  "type": "object",
+  "required": ["models"],
+  "properties": {
+    "models": {
+      "type": "array",
+      "items": {
+        "required": ["name", "model_types"],
+        "properties": {
+          "name": { "type": "string" },
+          "model_types": {
+            "type": "array",
+            "items": {
+              "required": ["name"],
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
