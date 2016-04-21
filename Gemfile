@@ -36,6 +36,10 @@ group :development, :test do
   gem 'shoulda-matchers', require: false
 end
 
+group :test do
+  gem "json-schema"
+end
+
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
