@@ -27,14 +27,14 @@ RSpec.describe ModelTypesController, type: :controller do
     context "when invalid authentication token" do
       it "should respond with status 401" do
         clear_token
-        put :model_types_price, params 
+        post :model_types_price, params 
         expect(response.status).to eq(401)
       end
     end
 
     context "when model type does not exist" do
       it "should respond with status 404" do
-        put :model_types_price, params
+        post :model_types_price, params
         expect(response.status).to eq(404)
       end
     end
@@ -52,14 +52,14 @@ RSpec.describe ModelTypesController, type: :controller do
       context "when invalid base price" do
         it "should respond with status 400" do
           params[:model_type][:base_price] = "a"
-          put :model_types_price, params 
+          post :model_types_price, params 
           expect(response.status).to eq(400)
         end
       end
 
       context "when valid base price" do
         let!(:new_base_price) { params[:model_type][:base_price] }
-        before { put :model_types_price, params }
+        before { post :model_types_price, params }
 
         it { is_expected.to respond_with(200) }
 
