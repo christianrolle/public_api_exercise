@@ -1,0 +1,6 @@
+{
+  "model_type": {
+    "type": "object",
+    "required": ["name", "base_price"]
+  }
+}
