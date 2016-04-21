@@ -8,9 +8,6 @@ class ModelTypesController < ApplicationController
     raise ActiveRecord::RecordNotFound if @model_type.nil?
     @model_type.attributes = model_type_params
     @model_type.save!
-    respond_to do |format|
-      format.json { render json: @model_type }
-    end
   end
 
   private
