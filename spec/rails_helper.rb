@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'support/factory_girl'
 require 'support/shoulda_matchers'
+require 'json_matchers/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
 
