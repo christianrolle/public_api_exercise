@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base
+  self.inheritance_column = :_type_disabled
 
   validates :name, :public_name, presence: true
   validates :type, presence: true, 
