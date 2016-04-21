@@ -23,5 +23,15 @@ RSpec.describe ModelsController, type: :controller do
         expect(response.status).to eq(401)
       end
     end
+
+    context "when models collection" do
+      before { get :index, params }
+
+      it { is_expected.to respond_with(200) }
+
+      it "should return the models collection JSON" do
+        expect(response).to match_response_schema("models")
+      end
+    end
   end
 end
