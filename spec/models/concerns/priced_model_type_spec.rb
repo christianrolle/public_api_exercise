@@ -7,6 +7,7 @@ RSpec.describe PricedModelType do
 
   describe "delegations" do
     it { is_expected.to delegate_method(:name).to(:model_type) }
+    it { is_expected.to delegate_method(:base_price).to(:model_type) }
   end
 
   describe "#total_price" do

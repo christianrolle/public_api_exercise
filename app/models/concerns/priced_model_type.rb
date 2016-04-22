@@ -1,6 +1,6 @@
 class PricedModelType
 
-  delegate :name, to: :model_type
+  delegate :name, :base_price, to: :model_type
 
   def initialize model_type
     @model_type = model_type
