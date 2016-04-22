@@ -7,7 +7,7 @@ RSpec.describe PricingPolicy::WebMargin do
   describe "#count" do
     it "should return count the occurences of 'status' in the HTML" do
       web_margin = PricingPolicy::WebMargin.new(uri)
-#      expect(web_margin.count 'status').to eq(9)
+      expect(web_margin.count 'status').to eq(9)
     end
 
     context "when external service is unavailable" do
