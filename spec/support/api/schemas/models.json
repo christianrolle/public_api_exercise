@@ -11,9 +11,10 @@
           "model_types": {
             "type": "array",
             "items": {
-              "required": ["name"],
+              "required": ["name", "total_price"],
               "properties": {
-                "name": { "type": "string" }
+                "name": { "type": "string" },
+                "total_price": { "type": "integer" }
               }
             }
           }
