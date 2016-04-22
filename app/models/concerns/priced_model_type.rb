@@ -7,8 +7,8 @@ class PricedModelType
   end
 
   def total_price
-    return if model_type.base_price.nil?
-    pricing_policy_type.total_price model_type.base_price
+    return if base_price.nil?
+    pricing_policy_type.total_price base_price
   end
 
   private
