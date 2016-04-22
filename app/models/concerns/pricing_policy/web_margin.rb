@@ -16,13 +16,16 @@ module PricingPolicy
     private
 
     def content
-      html = Nokogiri::HTML(document.read)
+      document = request_document
+      return '' if document.nil?
+      html = Nokogiri::HTML(document).read
       html.search('script, style').remove
       html.at('body').inner_html
     end
 
-    def document
+    def request_document
       open(uri)
+      rescue StandardError
     end
   end
 end
