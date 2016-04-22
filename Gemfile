@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',        group: :doc
+gem 'nokogiri'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0.1"
