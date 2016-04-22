@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe PricingPolicy::Flexible do
 
   subject { PricingPolicy::Flexible.new }
@@ -15,7 +14,7 @@ RSpec.describe PricingPolicy::Flexible do
       allow(PricingPolicy::WebMargin).to receive(:new).and_return(web_margin)
     }
 
-    it "should return the base_price plus a fixed margin" do
+    it "should return the base_price with a flexible margin" do
       total_price = base_price * (quantity.to_f / 100.0).round
       expect(subject.total_price base_price).to eq(total_price)
     end
