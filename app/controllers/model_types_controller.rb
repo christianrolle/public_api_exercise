@@ -4,10 +4,11 @@ class ModelTypesController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
 
   def model_types_price
-    @model_type = ModelType.find_by_model_type_slug params[:model_type_slug]
-    raise ActiveRecord::RecordNotFound if @model_type.nil?
-    @model_type.attributes = model_type_params
-    @model_type.save!
+    model_type = ModelType.find_by_model_type_slug params[:model_type_slug]
+    raise ActiveRecord::RecordNotFound if model_type.nil?
+    model_type.attributes = model_type_params
+    model_type.save!
+    @model_type = PricedModelType.new model_type
   end
 
   private
