@@ -18,7 +18,7 @@ module PricingPolicy
     def content
       document = request_document
       return '' if document.nil?
-      html = Nokogiri::HTML(document).read
+      html = Nokogiri::HTML(document.read)
       html.search('script, style').remove
       html.at('body').inner_html
     end
