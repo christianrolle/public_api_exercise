@@ -11,7 +11,7 @@ RSpec.describe PricingPolicy::Fixed do
     let!(:web_margin) { double }
     
     before { 
-      allow(web_margin).to receive(:count).with('status').and_return(margin) 
+      allow(web_margin).to receive(:count).with('status').once.and_return(margin) 
       allow(PricingPolicy::WebMargin).to receive(:new).and_return(web_margin)
     }
 
@@ -22,7 +22,6 @@ RSpec.describe PricingPolicy::Fixed do
 
     it "should cache fixed margin for performance reasons" do
       subject.total_price base_price
-      expect(web_margin).not_to receive(:count).with('status')
       subject.total_price base_price
     end
   end
